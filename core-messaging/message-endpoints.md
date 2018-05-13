@@ -7,10 +7,10 @@ II. Core Messaging
 ============
 
 As mentioned in the overview, Message Endpoints are responsible for connecting the various messaging components to channels. Over the next several chapters, you will see a number of different components that consume Messages. Some of these are also capable of sending reply Messages. Sending Messages is quite straightforward. As shown above in [Message Channels](./message-and-channels.md/#211-message-channel), it’s easy to send a Message to a Message Channel. 
-However, receiving is a bit more complicated. 
-The main reason is that there are two types of consumers: [Polling Consumers](../definitions.md/#pollable-consumer) and [Event Driven Consumers](../definitions.md/#event-driven-consumer).
+Whenever you create message component it's wrapped with one of the consumer types.
+And there are two types of consumers: [Polling Consumers](../definitions.md/#pollable-consumer) and [Event Driven Consumers](../definitions.md/#event-driven-consumer).
 
-2.5.1 Configuring Transformer
+2.5.1 Message Handler
 -----------
 
 MessageHandler interface is implemented by many of the components within the framework.  
@@ -57,7 +57,7 @@ As you need to start messaging flow and values that comes from outside are not m
 #### Gateway Proxy 
 
 As mentioned above, it would be great to have no dependency on the Integration Messaging API at all - including the gateway class.  
-Integration Messaging solution to generate proxy classes based on interface. 
+Integration Messaging solution to it, is to generate proxy classes based on interface. 
 
 ````php
     /**
@@ -76,17 +76,22 @@ Integration Messaging solution to generate proxy classes based on interface.
  
 Above interface will auto-register in your Dependency Injection Container under interface class name.  
 This will allow you to inject it anywhere as normal service (auto-wire will work out of the box).  
-If you need to register gateway under specific name you can add `referenceName` to `MessageEndpointAnnotation`   
+If you need to register gateway under specific name you can add `referenceName` to `MessageEndpointAnnotation`
 
-As you can see there is parameter called `parameterConverters`. This is part responsible for actual outside parameter to message conversion.    
+````php
+    @MessageEndpointAnnotation(referenceName="someReferenceName")
+````   
+
+As you can see there is parameter called `parameterConverters`. This is part responsible conversion of outside parameters to message.    
+
+
+#### Parameter To Message Converter
 
 There are three types of converters available for Gateway.
 
     @ParameterToPayloadAnnotation(parameterName="orderId")
     @ParameterToHeaderAnnotation(parameterName="userName", headerName="user")
     @ParameterToStaticHeaderAnnotation(headerName="isAdmin", headerValue=true)
-
-#### Parameter To Message Converters
 
 ````php
     @ParameterToPayloadAnnotation(parameterName="orderId")
@@ -156,7 +161,7 @@ and will not return for reply.
  
 A Gateway will auto-create a temporary, anonymous reply channel in message headers, where it will listen for the reply.  
 This is taken from user, and thanks to that OrderGateway what happens during flow. It just knows, that last messaging component
-that will no have outputChannel defined, will use  MessageHeaders::REPLY_CHANNEL, which is in fact reply channel defined by gateway.  
+that will no have outputChannel defined, will use  **MessageHeaders::REPLY_CHANNEL**, which is in fact reply channel defined by gateway.  
   
 In the above example payload of reply message will require to be Order, otherwise exception will be thrown.  
 If interface doesn't return null by using question mark type hint `?Order`, then exception will be thrown if there will be no reply. 
