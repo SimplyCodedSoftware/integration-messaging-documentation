@@ -20,7 +20,8 @@ I Concepts
 ============
 
 `Integration Messaging` brings programming model based on messaging. It supports message-driven architectures where inversion of control applies to runtime concerns, such as when certain business logic should executed and where the response should be sent. It supports routing and transformation of messages so components can stay loosely coupled for modularity and testability.  
-Messaging and integration concerns are handled by the framework, so business components are separated from integration logic.
+Messaging and integration concerns are handled by the framework, so business components are separated from integration logic.  
+It brings fail fast philosophy to PHP, by analysis your messaging configuration before it's run.    
 
 Integration Messaging design is inspired by [Enterprise Integration Patterns](http://www.enterpriseintegrationpatterns.com/) and [Spring Integration](https://projects.spring.io/spring-integration/). 
 Developers who have read the book or have expierence with `Spring Integration Framework` should be immediately comfortable with the concepts and terminology.  
