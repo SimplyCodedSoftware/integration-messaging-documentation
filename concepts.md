@@ -1,16 +1,14 @@
 Concepts
 =================
 
-<!--ts-->
-   * [1.1 Background](#1.1-background)
-   * [1.2 Main Components](#1.2-main-components)
-        * [1.2.1 Message](#1.2.1-message)
-        * [1.2.2 Message Channel](#1.2.2-message-channel)
-        * [1.2.3 Message Endpoint](#1.2.3-message-endpoint)
-   * [1.3 Message Endpoints](#1.3-message-endpoints)
-        * [1.3.1 Transformer](#1.3.1-transformer)
-        * [Transformer](#1.3.1)
-<!--te-->
+* [1.1 Background](#1.1-background)
+* [1.2 Main Components](#1.2-main-components)
+    * [1.2.1 Message](#1.2.1-message)
+    * [1.2.2 Message Channel](#1.2.2-message-channel)
+    * [1.2.3 Message Endpoint](#1.2.3-message-endpoint)
+* [1.3 Message Endpoints](#1.3-message-endpoints)
+    * [1.3.1 Transformer](#1.3.1-transformer)
+    * [Transformer](#1.3.1)
 
 1.1 Background
 ============
