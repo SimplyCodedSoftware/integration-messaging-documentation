@@ -7,9 +7,7 @@ II. Core Messaging
 ============
 
 Routers are a crucial element in many messaging architectures. 
-They consume Messages from a Message Channel and forward each consumed message to one or more different Message Channel depending on a set of conditions.
-
-Router does return channel name or names, that message will be routed too. 
+They consume Messages from a Message Channel and forward each consumed message to one or more different Message Channel depending on a set of conditions. 
 
 2.3.1 Router types
 -----------
@@ -44,9 +42,47 @@ A HeaderValueRouter will send Messages to the channel based on the individual he
 
 #### Reference Router
   
-[Reference](../definitions.md/#reference)
+Points to [Reference](../definitions.md/#reference), that must return target channel name or 
+array of channel names. 
 
 ````php
-    $referenceName = "isVipOrder";
+    $referenceName = "isHighValueOrder";
     RouterBuilder::create("routingChannelName", $referenceName, "route")
+    
+    
+    
+    class isHighValueOrder
+    {
+        public function route(Order $order) : string
+        {
+            if ($order->isHighValueOrder()) {
+                return "exlusiveChannelName";
+            }
+            
+            return "normalChannelName";
+        }
+    }
+````
+
+2.3.2 Router configuration
+-----------
+
+#### Default Resolution Channel
+
+If router will not receive channel name to resolve, default channel can be set. 
+
+````php
+    RouterBuilder::create("routingChannelName", "someReference", "route")
+        ->withDefaultResolutionChannel("debugChannel")
+````
+
+#### Is Resolution Required
+
+If router will not resolve any channel and default resolution is not set, then it will throw exception on default.  
+This behaviour can be changed, so it will behave like [Message Filter](../concepts.md/#132-filter) 
+
+
+````php
+    RouterBuilder::create("routingChannelName", "someReference", "route")
+        ->setResolutionRequired(false)
 ````
