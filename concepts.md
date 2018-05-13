@@ -1,4 +1,4 @@
-[Return to table of contents](../index.md)
+[Return to table of contents](https://simplycodedsoftware.github.io/integration-messaging-documentation)
 
 I Concepts
 =================
