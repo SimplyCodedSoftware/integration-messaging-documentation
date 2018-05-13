@@ -1,13 +1,18 @@
 Concepts
 =================
 
-* [1.1 Background](#1.1-background)
-* [1.2 Main Components](#1.2-main-components)
-    * [1.2.1 Message](#1.2.1-message)
-    * [1.2.2 Message Channel](#1.2.2-message-channel)
-    * [1.2.3 Message Endpoint](#1.2.3-message-endpoint)
+* [1.1 Background](#11-background)
+* [1.2 Main Components](#12-main-components)
+    * [1.2.1 Message](#121-message)
+    * [1.2.2 Message Channel](#122-message-channel)
+    * [1.2.3 Message Endpoint](#123-message-endpoint)
 * [1.3 Message Endpoints](#13-message-endpoints)
     * [1.3.1 Transformer](#131-transformer)
+    * [1.3.2 Transformer](#132-filter)
+    * [1.3.3 Transformer](#133-router)
+    * [1.3.4 Transformer](#134-splitter)
+    * [1.3.5 Transformer](#135-aggregator)            
+    * [1.3.6 Service Activator](#136-service-activator)            
 
 1.1 Background
 ============
@@ -51,7 +56,8 @@ The next section will provide an overview of the Message Endpoint types that han
 
 A Message Endpoint represents the "filter" of a pipes-and-filters architecture. As mentioned above, the endpoint’s primary role is to connect domain specific code to the messaging framework and to do so in a non-invasive manner. In other words, the application code should ideally have no awareness of the Message objects or the Message Channels. This is similar to the role of a Controller in the MVC paradigm. Just as a Controller handles HTTP requests, the Message Endpoint handles Messages. Just as Controllers are mapped to URL patterns, Message Endpoints are mapped to Message Channels. The goal is the same in both cases: isolate application code from the infrastructure. These concepts are discussed at length along with all of the patterns that follow in the Enterprise Integration Patterns book. Here, we provide only a high-level description of the main endpoint types that are supported. The chapters that follow will elaborate and provide sample code as well as configuration examples.
 
-## 1.3.1 Transformer
+1.3.1 Transformer
+-----------
 
 A Message Transformer is responsible for converting a Message’s content or structure and returning the modified Message. Similarly, a transformer may be used to add, remove, or modify the Message’s header values.
 
@@ -73,10 +79,12 @@ A Message Router is responsible for deciding what channel or channels should rec
  
 A Splitter is another type of Message Endpoint whose responsibility is to accept a Message from its input channel, split that Message into multiple Messages, and then send each of those to its output channel. This is typically used for dividing a "composite" payload object into a group of Messages containing the sub-divided payloads.
  
-1.3.5 Aggregator (not yet available)
+1.3.5 Aggregator
 -----------
  
  Basically a mirror-image of the Splitter, the Aggregator is a type of Message Endpoint that receives multiple Messages and combines them into a single Message. In fact, Aggregators are often downstream consumers in a pipeline that includes a Splitter. Technically, the Aggregator is more complex than a Splitter, because it is required to maintain state (the Messages to-be-aggregated), to decide when the complete group of Messages is available, and to timeout if necessary. Furthermore, in case of a timeout, the Aggregator needs to know whether to send the partial results or to discard them to a separate channel.
+ 
+     Aggregate implementation is in progress
  
 1.3.6 Service Activator
 -----------
