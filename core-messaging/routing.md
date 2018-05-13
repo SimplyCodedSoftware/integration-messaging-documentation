@@ -1,4 +1,4 @@
-[Return to table of contents](https://simplycodedsoftware.github.io/integration-messaging-documentation)
+[Return to table of contents](../index.md)
 
 II. Core Messaging
 =================
@@ -51,7 +51,7 @@ array of channel names.
     
     
     
-    class isHighValueOrder
+    class isHighValueOrderService
     {
         public function route(Order $order) : string
         {
@@ -86,3 +86,6 @@ This behaviour can be changed, so it will behave like [Message Filter](../concep
     RouterBuilder::create("routingChannelName", "someReference", "route")
         ->setResolutionRequired(false)
 ````
+
+[Jump to 2.4 Transformer...](./transformer.md)
+============

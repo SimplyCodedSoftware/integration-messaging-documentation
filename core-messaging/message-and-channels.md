@@ -174,9 +174,9 @@ Whenever message is changed new Id and timestamp will be generated.
 -----------
 
 Message itself is Value Object, which means should not be changed without creating new one.   
-Message headers can't be ever changed and do not even expose method for state mutation.  
-Message payload is in fact left to the user, as payload may be simple `POPO` with `Setter methods`, that can be modified by reference
-from outside.  
+Message headers can't be ever changed and do not even expose method for state mutation.
+Whenever message goes out of any message changing component new message is created.   
+Message payload may be simple `POPO` with `Setter methods`, that will require user code to not modify payload directly by reference.  
 General advice it to keep message `immutable`, as this may leads to undesired behaviour. 
 
 2.2.4 Message Headers Propagation
