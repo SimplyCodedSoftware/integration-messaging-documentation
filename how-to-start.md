@@ -1,15 +1,15 @@
 [Return to table of contents](https://simplycodedsoftware.github.io/integration-messaging-documentation)
 
-II. How to start
+III. How to start
 =================
 
 * [2.1 Installation](#21-installation)
 * [2.2 Main Components](#22-main-components)
 
-2.1 Installation
+3.1 Installation
 ============
 
-2.1.1 Require package
+3.1.1 Require package
 -----------
 
 `Integration Messaging` does not base on any other framework, and thanks to that can be connected to any.  
@@ -25,7 +25,7 @@ It's highly recommended to use integration messaging with `Symfony` configured w
 This really simplifiy working with `Integration Messaging`.  
 
 
-2.1.2 Turn it on 
+3.1.2 Turn it on 
 -----------
 
 If you're using `symfony 3`, activate bundle in your Kernel class.  
@@ -37,7 +37,7 @@ If you're using `symfony 3`, activate bundle in your Kernel class.
     ]
 ````
 
-2.1.3 Annotations 
+3.1.3 Annotations 
 -----------
 
 Huge part of the high level framework's code is based on `Annotations` to simplify client's API.  
@@ -50,7 +50,7 @@ $loader = require __DIR__.'/../vendor/autoload.php';
 \Doctrine\Common\Annotations\AnnotationRegistry::registerLoader(array($loader, 'loadClass'));
 ````
 
-2.1.4 Quick Start 
+3.1.4 Quick Start 
 -----------
 
 If you want to play around with the concept you may try skeleton project with Symfony 4 and Integration Messaging configured.    

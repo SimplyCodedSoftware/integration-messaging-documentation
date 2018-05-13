@@ -101,7 +101,3 @@ A Service Activator is a generic endpoint for connecting a service instance to t
 The Service Activator invokes an operation on some service object to process the request Message, extracting the request Message’s payload and converting if necessary (if the method does not expect a Message-typed parameter). Whenever the service object’s method returns a value, that return value will likewise be converted to a reply Message if necessary (if it’s not already a Message). That reply Message is sent to the output channel. If no output channel has been configured, then the reply will be sent to the channel specified in the Message’s "return address" if available.
 
 ![](https://docs.spring.io/spring-integration/reference/html/images/handler-endpoint.jpg)
-
-##### License Information
-Big part of documentation was based on [Spring Integration](https://docs.spring.io/spring-integration/reference/html/overview.html).  
-https://github.com/spring-projects/spring-framework/blob/master/src/docs/dist/license.txt
