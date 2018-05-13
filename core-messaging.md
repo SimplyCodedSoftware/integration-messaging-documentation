@@ -3,6 +3,18 @@
 II. Core Messaging
 =================
 
+* [2.1 Background](#21-message-channels)
+    * [2.1.1 Message Channel](#211-message-channel)
+    * [2.1.2 Channel Types](#212-channel-types)2.1.3 Message Channel Implementations
+    * [2.1.3 Message Channel Implementation](#213-message-channel-implementations)
+* [2.2 Message](#22-message)
+    * [2.2.1 Message Interface](#221-message-interface)
+    * [2.2.2 Message Headers](#222-message-headers)
+    * [2.2.3 Message Mutability](#223-message-mutability)            
+    * [2.2.4 Message Headers Propogation](#224-message-headers-propagation)            
+    * [2.2.5 Message Implementations](#225-message-implementations)            
+    * [2.2.6 Message Builder](#226-message-builder)            
+
 2.1 Message Channels
 ============
 
