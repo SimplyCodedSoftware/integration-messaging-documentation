@@ -4,6 +4,7 @@
 * [II. Core Messaging]()
     * [Message and Channels](core-messaging/message-and-channels.md)
     * [Message Routing](core-messaging/routing.md)
+    * [Message Transformer](core-messaging/transformer.md)
 * [III. How to start](how-to-start.md)
 * [Definitions](definitions.md)
 
