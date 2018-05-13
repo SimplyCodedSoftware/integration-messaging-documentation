@@ -233,3 +233,5 @@ Rather than requiring the creation and population of a Map to pass into the Gene
         $message = $messageBuilder->build();
 ````
 
+[2.3 Routing](./routing.md)
+============
