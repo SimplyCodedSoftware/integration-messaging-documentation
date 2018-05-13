@@ -9,6 +9,7 @@ Concepts
         * [1.2.3 Message Endpoint](#1.2.3-message-endpoint)
    * [1.3 Message Endpoints](#1.3-message-endpoints)
         * [1.3.1 Transformer](#1.3.1-transformer)
+        * [transformer](#transformer)
 <!--te-->
 
 1.1 Background
@@ -53,6 +54,7 @@ The next section will provide an overview of the Message Endpoint types that han
 
 A Message Endpoint represents the "filter" of a pipes-and-filters architecture. As mentioned above, the endpoint’s primary role is to connect domain specific code to the messaging framework and to do so in a non-invasive manner. In other words, the application code should ideally have no awareness of the Message objects or the Message Channels. This is similar to the role of a Controller in the MVC paradigm. Just as a Controller handles HTTP requests, the Message Endpoint handles Messages. Just as Controllers are mapped to URL patterns, Message Endpoints are mapped to Message Channels. The goal is the same in both cases: isolate application code from the infrastructure. These concepts are discussed at length along with all of the patterns that follow in the Enterprise Integration Patterns book. Here, we provide only a high-level description of the main endpoint types that are supported. The chapters that follow will elaborate and provide sample code as well as configuration examples.
 
+### transformer
 1.3.1 Transformer
 -----------
 
