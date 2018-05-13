@@ -1,13 +1,14 @@
-# Overview
+Concepts
+=================
 
 <!--ts-->
    * [1.1 Background](#1.1-background)
    * [1.2 Main Components](#1.2-main-components)
-     * [1.2.1 Message](#1.2.1-message)
-     * [1.2.2 Message Channel](#1.2.2-message-channel)
-     * [1.2.3 Message Endpoint](#1.2.3-message-endpoint)
+        * [1.2.1 Message](#1.2.1-message)
+        * [1.2.2 Message Channel](#1.2.2-message-channel)
+        * [1.2.3 Message Endpoint](#1.2.3-message-endpoint)
    * [1.3 Message Endpoints](#1.3-message-endpoints)
-    * [1.3.1 Transformer](#1.3.1-transformer)
+        * [1.3.1 Transformer](#1.3.1-transformer)
 <!--te-->
 
 1.1 Background
@@ -90,6 +91,25 @@ A Service Activator is a generic endpoint for connecting a service instance to t
 The Service Activator invokes an operation on some service object to process the request Message, extracting the request Message’s payload and converting if necessary (if the method does not expect a Message-typed parameter). Whenever the service object’s method returns a value, that return value will likewise be converted to a reply Message if necessary (if it’s not already a Message). That reply Message is sent to the output channel. If no output channel has been configured, then the reply will be sent to the channel specified in the Message’s "return address" if available.
 
 ![](https://docs.spring.io/spring-integration/reference/html/images/handler-endpoint.jpg)
+
+```php
+/**
+ * @MessageEndpointAnnotation()
+ */
+class ServiceActivatorWithAllConfigurationDefined
+{
+    /**
+     * @param string    $content
+     *
+     * @return void
+     * @ServiceActivatorAnnotation(inputChannelName="inputChannel")
+     */
+    public function sendMessage(string $content) : void
+    {
+        // send message
+    }
+}
+```
 
 ##### License Information
 Big part of documentation was based on [Spring Integration](https://docs.spring.io/spring-integration/reference/html/overview.html). 
