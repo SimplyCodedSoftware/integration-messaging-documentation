@@ -1,6 +1,6 @@
 [Return to table of contents](https://simplycodedsoftware.github.io/integration-messaging-documentation)
 
-II How to start
+II. How to start
 =================
 
 * [2.1 Installation](#21-installation)
@@ -25,7 +25,7 @@ It's highly recommended to use integration messaging with `Symfony` configured w
 This really simplifiy working with `Integration Messaging`.  
 
 
-2.1.2 Turn on 
+2.1.2 Turn it on 
 -----------
 
 If you're using `symfony 3`, activate bundle in your Kernel class.  
@@ -50,3 +50,8 @@ $loader = require __DIR__.'/../vendor/autoload.php';
 \Doctrine\Common\Annotations\AnnotationRegistry::registerLoader(array($loader, 'loadClass'));
 ````
 
+2.1.4 Quick Start 
+-----------
+
+If you want to play around with the concept you may try skeleton project with Symfony 4 and Integration Messaging configured.    
+Just clone [skeleton-integration-messaging](https://github.com/SimplyCodedSoftware/skeleton-integration-messaging) and follow `README instructions`

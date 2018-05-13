@@ -1,6 +1,6 @@
 [Return to table of contents](https://simplycodedsoftware.github.io/integration-messaging-documentation)
 
-I Concepts
+I. Concepts
 =================
 
 * [1.1 Background](#11-background)
