@@ -8,10 +8,10 @@ Concepts
     * [1.2.3 Message Endpoint](#123-message-endpoint)
 * [1.3 Message Endpoints](#13-message-endpoints)
     * [1.3.1 Transformer](#131-transformer)
-    * [1.3.2 Transformer](#132-filter)
-    * [1.3.3 Transformer](#133-router)
-    * [1.3.4 Transformer](#134-splitter)
-    * [1.3.5 Transformer](#135-aggregator)            
+    * [1.3.2 Filter](#132-filter)
+    * [1.3.3 Router](#133-router)
+    * [1.3.4 Splitter](#134-splitter)
+    * [1.3.5 Aggregator](#135-aggregator)            
     * [1.3.6 Service Activator](#136-service-activator)            
 
 1.1 Background
