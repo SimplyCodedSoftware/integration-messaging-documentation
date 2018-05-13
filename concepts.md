@@ -1,3 +1,5 @@
+[Return to table of contents](../index.md)
+
 I Concepts
 =================
 
@@ -27,7 +29,9 @@ Developers who have read the book or have expierence with `Spring Integration Fr
 1.2 Main Components
 ============
 
-Messaging systems typically follow `pipes-and-filters` model. The "filters" represent any component that is capable of `producing` and/or `consuming` messages, and the "pipes" transport the messages between filters so that the components themselves remain loosely-coupled.
+Messaging systems typically follow `pipes-and-filters` model. The "filters" represent any component that is capable of `producing` and/or `consuming` messages, and the "pipes" transport the messages between filters so that the components themselves remain loosely-coupled.  
+Spring Integration did great job in describing, how components does work. The implementation is of course different, but the concepts behind it is still the same. You can refer to offical spring integration documentation to get more overview.  
+In fact most of description here comes from the [official documentation](https://docs.spring.io/spring-integration/reference/html/overview.html#overview-components-message).
 
 1.2.1 Message
 -----------
@@ -97,25 +101,6 @@ The Service Activator invokes an operation on some service object to process the
 
 ![](https://docs.spring.io/spring-integration/reference/html/images/handler-endpoint.jpg)
 
-```php
-/**
- * @MessageEndpointAnnotation()
- */
-class ServiceActivatorWithAllConfigurationDefined
-{
-    /**
-     * @param string    $content
-     *
-     * @return void
-     * @ServiceActivatorAnnotation(inputChannelName="inputChannel")
-     */
-    public function sendMessage(string $content) : void
-    {
-        // send message
-    }
-}
-```
-
 ##### License Information
-Big part of documentation was based on [Spring Integration](https://docs.spring.io/spring-integration/reference/html/overview.html). 
+Big part of documentation was based on [Spring Integration](https://docs.spring.io/spring-integration/reference/html/overview.html).  
 https://github.com/spring-projects/spring-framework/blob/master/src/docs/dist/license.txt
