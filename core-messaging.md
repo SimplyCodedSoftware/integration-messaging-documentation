@@ -105,3 +105,119 @@ interface ChannelInterceptor
     Keep in mind that receive() calls are only relevant for PollableChannels. 
     Therefore, the preReceive(..), postReceive(..) interceptor methods are only invoked when the interceptor is applied to a PollableChannel.
     
+2.2 Message
+============
+
+Message is a generic container for data. Any object can be provided as the payload, and each Message also includes headers containing user-extensible properties as key-value pairs.
+
+2.2.1 Message Interface
+-----------
+
+````php
+interface Message
+{
+    public function getHeaders() : MessageHeaders;
+
+    public function getPayload();
+}    
+````
+
+Message is most important concept in `Integration Messaging`. 
+It's wrapper for data that is passed between messaging components.  
+As it is simple Interface and lack of knowledge of data's type, the application can evolve to support new types  
+and messaging system will not be affected by changes.  
+On the other hand, when some component in the messaging system does require access to information about the Message, such metadata can typically be stored to and retrieved from the metadata in the Message Headers.  
+
+2.2.2 Message Headers
+-----------
+
+````php
+    class MessageHeaders
+    {
+        final public function headers() : array
+    
+        final public function get(string $headerName)
+    }
+
+````
+
+Headers are used to carry meta data about information, so you may extract only information you need without touching the payload.  
+They are simple hash map structure.
+
+````php
+ $someValue = message->get("someKey");
+````
+
+There are two predefined headers, that are always available within `Message`
+
+````php
+    MessageHeaders::MESSAGE_ID // Type of Uuid
+    MessageHeaders::TIMESTAMP // Type of int 
+````
+
+Message Id and Timestamp are always generated during message creation / mutation. 
+Whenever message is changed new Id and timestamp will be generated. 
+
+2.2.3 Message Mutability
+-----------
+
+Message itself is Value Object, which means should not be changed without creating new one.   
+Message headers can't be ever changed and do not even expose method for state mutation.  
+Message payload is in fact left to the user, as payload may be simple `POJO` with `Setter methods`, that can be modified by reference
+from outside.  
+General advice it to keep message `immutable`, as this may leads to undesired behaviour. 
+
+2.2.4 Message Headers Propagation
+-----------
+
+When messages are processed (and modified) by message-producing endpoints (such as a service activator), in general, inbound headers are propagated to the outbound message.   
+One exception to this is a transformer, when a complete message is returned to the framework; in that case, the user code is responsible for the entire outbound message.   
+When a transformer just returns the payload; the inbound headers are propagated. Also, a header is only propagated if it does not already exist in the outbound message, allowing user code to change header values as needed.
+
+
+2.2.5 Message Implementations
+-----------
+
+#### Generic Message
+Is base message implementation, that is mostly used by the framework to create message.
+
+````php
+    GenericMessage::create("payload", MessageHeaders::createEmpty());
+````
+
+#### Error Message
+Error message is created when error occurs in messaging system and is configured to publish Exceptions to some channel.  
+Instead of exception going straight to the top, resulting in User Exception it will be catch and published to specific channel.
+You will mostly not need to create those, as this is taken from you.  
+
+````php
+    public static function createWithOriginalMessage(\Throwable $exception, Message $originalMessage) : self
+````
+
+2.2.6 Message Builder 
+-----------
+
+You may notice that the Message interface defines retrieval methods for its payload and headers but no setters. The reason for this is that a Message cannot be modified after its initial creation.
+When a Message instance is sent to multiple consumers one of those consumers needs to send a reply with a different payload type, it will need to create a new Message. As a result, the other consumers are not affected by those changes.
+Rather than requiring the creation and population of a Map to pass into the GenericMessage factory method, Integration Messaging does provide a far more convenient way to construct Messages: `MessageBuilder`
+
+````php
+    final class MessageBuilder
+    {
+        public static function fromMessage(Message $message) : self
+        
+        public function setHeader(string $headerName, $headerValue) : self
+        
+        public static function withPayload($payload) : self
+        
+        public function build() : Message
+    }
+````
+
+````php
+        $messageBuilder = MessageBuilder::fromMessage($message);
+        $messageBuilder->setPayload("newPayload");
+        
+        $message = $messageBuilder->build();
+````
+
