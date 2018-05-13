@@ -1,4 +1,4 @@
-[Return to table of contents](https://simplycodedsoftware.github.io/integration-messaging-documentation)
+[Return to table of contents](../index.md)
 
 II. Core Messaging
 =================
@@ -233,5 +233,5 @@ Rather than requiring the creation and population of a Map to pass into the Gene
         $message = $messageBuilder->build();
 ````
 
-[2.3 Routing](./routing.md)
+[Jump to 2.3 Routing...](./routing.md)
 ============
