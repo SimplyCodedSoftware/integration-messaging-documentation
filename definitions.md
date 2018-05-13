@@ -55,11 +55,15 @@ In case if you do not use, you need to tell MessageEndpointAnnotation under whic
 ````
 
 
+Event Driven Consumer
+-----------
+[Read here](http://www.enterpriseintegrationpatterns.com/patterns/messaging/EventDrivenConsumer.html)
+
 Pollable Consumer
 -----------
 [Read here](http://www.enterpriseintegrationpatterns.com/patterns/messaging/PollingConsumer.html)
 
-
-Event Driven Consumer
+Message Components
 -----------
-[Read here](http://www.enterpriseintegrationpatterns.com/patterns/messaging/EventDrivenConsumer.html)
+
+Component are things like Service Activator, Transformer, Router, Splitter, Aggregator etc...
