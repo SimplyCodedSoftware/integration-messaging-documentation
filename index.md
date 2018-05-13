@@ -1,9 +1,10 @@
-# Hello World
+# Integration Messaging
 
 ---
 layout: default
 ---
 
-{% include_relative concepts.md %}
+Table of contents
+=================
 
-{% include_relative cqrs/index.md %}
+* [1. Concepts](concepts.md)
