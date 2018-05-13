@@ -5,7 +5,7 @@ II. Core Messaging
 
 * [2.1 Background](#21-message-channels)
     * [2.1.1 Message Channel](#211-message-channel)
-    * [2.1.2 Channel Types](#212-channel-types)2.1.3 Message Channel Implementations
+    * [2.1.2 Channel Types](#212-channel-types)
     * [2.1.3 Message Channel Implementation](#213-message-channel-implementations)
 * [2.2 Message](#22-message)
     * [2.2.1 Message Interface](#221-message-interface)

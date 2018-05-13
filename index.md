@@ -1,7 +1,9 @@
 # Integration Messaging
 
 * [I. Concepts](concepts.md)
-* [II. Core Messaging](core-messaging.md)
+* [II. Core Messaging]()
+    * [Message and Channels](core-messaging/message-and-channels.md)
+    * [Message Routing](core-messaging/routing.md)
 * [III. How to start](how-to-start.md)
 
 
