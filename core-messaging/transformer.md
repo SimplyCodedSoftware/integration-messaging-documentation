@@ -3,6 +3,9 @@
 II. Core Messaging
 =================
 
+* [2.4 Transformer](#24-transformer)
+    * [2.4.1 Configuring Transformer](#241-configuring-transformer)
+
 2.4 Transformer
 ============
 
@@ -57,7 +60,7 @@ Expression transformer, can make use of Symfony Expression Language, to change t
     TransformerBuilder::createWithExpression("inputChannelName", "payload + 3") : self
 ````
 
-If payload it e.g. 5 it will result in new Message containing 8 as payload.
+If payload contains 5 in above example it will result in new Message containing 8 as payload.
 
 #### Header Enricher Transformer
 
@@ -67,3 +70,5 @@ Header enricher will transform message's headers by adding ones passed during co
     public static function createHeaderEnricher(string $inputChannelName, array $messageHeaders) : self
 ````
 
+[Jump to 2.5 Message Endpoints...](./message-endpoints.md)
+============

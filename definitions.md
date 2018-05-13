@@ -53,3 +53,13 @@ In case if you do not use, you need to tell MessageEndpointAnnotation under whic
 ````php
     @MessageEndpointAnnotation(referenceName="orderService")
 ````
+
+
+Pollable Consumer
+-----------
+[Read here](http://www.enterpriseintegrationpatterns.com/patterns/messaging/PollingConsumer.html)
+
+
+Event Driven Consumer
+-----------
+[Read here](http://www.enterpriseintegrationpatterns.com/patterns/messaging/EventDrivenConsumer.html)
